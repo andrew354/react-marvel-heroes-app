@@ -4,14 +4,16 @@ import reportWebVitals from './reportWebVitals'
 import RoutesProvider from './providers/RouterProvider'
 import AppProvider from './providers/AppProvider'
 import './styles/index.scss'
+import AppRouter from './router/AppRouter'
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <React.StrictMode>
     <AppProvider>
-      <RoutesProvider />
+      {/* <RoutesProvider /> */}
+      <AppRouter />
     </AppProvider>
-  </React.StrictMode>,
+  </React.StrictMode>
 )
 
 // If you want to start measuring performance in your app, pass a function

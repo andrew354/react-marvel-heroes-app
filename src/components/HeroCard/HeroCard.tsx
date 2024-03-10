@@ -26,7 +26,7 @@ const HeroCard = ({
       <Link to={`${heroBaseURL}/${hero.id}`}>
         <img
           src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
-          alt="heroIcon"
+          alt={`${hero.name}-heroIcon`}
         />
       </Link>
       <div className="herocard_bottom">

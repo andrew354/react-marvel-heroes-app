@@ -1,11 +1,11 @@
 const path = require('path')
-const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 module.exports = (env, { mode }) => {
   console.log({ mode })
-
   const isProduction = mode === 'production'
 
   return {
@@ -28,7 +28,6 @@ module.exports = (env, { mode }) => {
           test: /\.s[ac]ss$/i,
           use: [
             !isProduction ? 'style-loader' : MiniCssExtractPlugin.loader,
-            ,
             'css-loader',
             'sass-loader',
           ],
@@ -52,9 +51,19 @@ module.exports = (env, { mode }) => {
       }),
       new MiniCssExtractPlugin({
         filename: !isProduction ? '[name].css' : '[name].[hash].css',
-        chunkFilename: !isProduction ? '[id].css' : '[id].[hash].css',
       }),
     ],
+    optimization: {
+      minimize: true,
+      minimizer: [
+        new TerserPlugin({
+          test: /\.js(\?.*)?$/i,
+          parallel: true,
+          extractComments: false,
+        }),
+        new CssMinimizerPlugin(),
+      ],
+    },
     devServer: {
       open: true,
       port: 3000,
