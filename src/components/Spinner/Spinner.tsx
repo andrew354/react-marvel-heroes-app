@@ -1,7 +1,7 @@
-import './spinner.scss';
+import './spinner.scss'
 
 const Spinner = () => {
-	return <div className="loader"></div>;
-};
+  return <div data-testid="spinner" className="loader"></div>
+}
 
-export default Spinner;
+export default Spinner

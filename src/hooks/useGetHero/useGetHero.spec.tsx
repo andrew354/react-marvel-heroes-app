@@ -3,7 +3,7 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 
 import axios from 'axios'
 import { useGetHeroesByName } from './useGetHero'
-import { mockHeroesContextValue } from '../../pages/favourites/favourite.spec'
+import { mockHeroesContextValue } from '../../providers/__test__/mockTes'
 
 export type WrapperProvidersProps = {
   children: React.ReactNode

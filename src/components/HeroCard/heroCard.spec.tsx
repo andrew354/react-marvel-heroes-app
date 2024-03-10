@@ -1,14 +1,14 @@
 import { render, screen } from '@testing-library/react'
+import HeroCard from './HeroCard'
 import {
   WrapperProviders,
   mockHeroesContextValue,
-} from '../../pages/favourites/favourite.spec'
-import HeroCard from './HeroCard'
+} from '../../providers/__test__/mockTes'
 
 const handleAddToFavourite = jest.fn()
 const handleRemoveToFavourite = jest.fn()
 
-describe('Header', () => {
+describe('HeroCard', () => {
   beforeEach(async () => {
     render(
       <HeroCard

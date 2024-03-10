@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import FavouriteIcon from './FavouriteIcon'
-import { WrapperProviders } from '../../pages/favourites/favourite.spec'
+import { WrapperProviders } from '../../providers/__test__/mockTes'
 
 describe('FavouriteIcon', () => {
   beforeEach(async () => {

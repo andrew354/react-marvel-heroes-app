@@ -1,13 +1,8 @@
 import { act, renderHook } from '@testing-library/react'
 import { QueryClient, QueryClientProvider } from 'react-query'
-
 import axios from 'axios'
-
-import {
-  mockComics,
-  mockHeroesContextValue,
-} from '../../pages/favourites/favourite.spec'
 import { useGetComicsByHero } from './useGetComics'
+import { mockComics } from '../../providers/__test__/mockTes'
 
 export type WrapperProvidersProps = {
   children: React.ReactNode
@@ -25,7 +20,7 @@ const mockData = {
   },
 }
 
-describe('useGetHeroesByName', () => {
+describe('useGetComicsByHero', () => {
   afterEach(() => {
     jest.clearAllMocks()
   })
@@ -72,7 +67,7 @@ describe('useGetHeroesByName', () => {
   })
 
   it('should handle error', async () => {
-    const errorMessage = 'Failed to fetch heroes'
+    const errorMessage = 'Failed to fetch comics'
     ;(axios.get as jest.MockedFunction<typeof axios.get>).mockRejectedValueOnce(
       new Error(errorMessage)
     )

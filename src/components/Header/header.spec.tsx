@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react'
-import { WrapperProviders } from '../../pages/favourites/favourite.spec'
+
 import Header from './Header'
+import { WrapperProviders } from '../../providers/__test__/mockTes'
 
 describe('Header', () => {
   beforeEach(async () => {

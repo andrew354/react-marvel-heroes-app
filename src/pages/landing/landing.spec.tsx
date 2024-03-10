@@ -1,12 +1,13 @@
 import { render, screen } from '@testing-library/react'
-import { WrapperProviders } from '../../pages/favourites/favourite.spec'
 import Landing from './Landing'
+import {
+  WrapperLoaderProviders,
+  WrapperProviders,
+} from '../../providers/__test__/mockTes'
 
-describe('ListHeroes', () => {
-  beforeEach(async () => {
-    render(<Landing />, { wrapper: WrapperProviders })
-  })
+describe('Landing', () => {
   it('renders landing page with all the imported components', () => {
+    render(<Landing />, { wrapper: WrapperProviders })
     const headerMarvelLogo = screen.getByAltText(
       /marvelLogo/i
     ) as HTMLImageElement
@@ -28,7 +29,14 @@ describe('ListHeroes', () => {
   })
 
   it('renders the length of heroes array', () => {
+    render(<Landing />, { wrapper: WrapperProviders })
     const listHeroesArrayResult = screen.getByText(/2 results/i)
     expect(listHeroesArrayResult).toBeInTheDocument()
+  })
+
+  it('show the spinner when loading heroes request', () => {
+    render(<Landing />, { wrapper: WrapperLoaderProviders })
+    const spinner = screen.getByTestId('spinner')
+    expect(spinner).toBeInTheDocument()
   })
 })

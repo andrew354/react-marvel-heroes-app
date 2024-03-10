@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react'
+import ListHeroes from './ListHeroes'
 import {
   WrapperProviders,
   mockHeroesContextValue,
-} from '../../pages/favourites/favourite.spec'
-import ListHeroes from './ListHeroes'
+} from '../../providers/__test__/mockTes'
 
 describe('ListHeroes', () => {
   beforeEach(async () => {
