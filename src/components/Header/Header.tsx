@@ -2,7 +2,7 @@ import './header.scss'
 import HeartFull from '../../assets/images/heartFull.svg'
 import MarvelLogo from '../../assets/images/MarvelLogo.svg'
 import { Link, useNavigate } from 'react-router-dom'
-import { useFavHeroesContext } from '../../providers/FavCharProvider'
+import { useFavHeroesContext } from '../../providers/FavHeroesProvider'
 
 const Header = () => {
   const navigate = useNavigate()

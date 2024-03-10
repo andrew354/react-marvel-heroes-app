@@ -1,5 +1,4 @@
 import './layout.scss'
-import { Outlet } from 'react-router-dom'
 import Header from '../Header/Header'
 
 type LayoutProps = {
@@ -8,11 +7,9 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
   return (
-    <>
-      <main>
-        <Header />
-        {children}
-      </main>
-    </>
+    <main>
+      <Header />
+      {children}
+    </main>
   )
 }

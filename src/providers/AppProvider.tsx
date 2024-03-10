@@ -1,4 +1,4 @@
-import { FavCharProvider } from './FavCharProvider'
+import { FavHeroesProvider } from './FavHeroesProvider'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { HeroesProvider } from './HeroesProvider'
 import { BrowserRouter } from 'react-router-dom'
@@ -10,7 +10,7 @@ function AppProvider({ children }: { children: React.ReactElement }) {
       <BrowserRouter>
         <QueryClientProvider client={queryClient}>
           <HeroesProvider>
-            <FavCharProvider>{children}</FavCharProvider>
+            <FavHeroesProvider>{children}</FavHeroesProvider>
           </HeroesProvider>
         </QueryClientProvider>
       </BrowserRouter>

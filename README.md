@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+<div align="center">
+  <h2>Marvel Project App<br/>React + Typescript + SCSS</h2>
+</div>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Starter template
 
-## Available Scripts
+This starter template includes:
 
-In the project directory, you can run:
+- [Webpack](https://webpack.js.org/)
+- [React v18](https://beta.reactjs.org/)
+- [Typescript](https://www.typescriptlang.org/docs/handbook/react.html)
+- [React Router](https://reactrouter.com/en/main)
+- [React Query](https://tanstack.com/query/v3/)
+- [Jest](https://jestjs.io/)
+- [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/)
+- [SASS](https://sass-lang.com/)
+- Linters:
+  - [eslint](https://eslint.org/) + [prettier](https://prettier.io/) + [stylelint](https://stylelint.io/) + [lintstaged](https://github.com/okonet/lint-staged)
+  - [prettier-plugin-tailwindcss](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) - Automatic Class Sorting with Prettier
 
-### `npm start`
+### Clone the repository and install dependencies
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```sh
+git clone https://github.com/andrew354/react-marvel-heroes-app
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+```sh
+yarn
+```
 
-### `npm test`
+```sh
+npm install
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Open project in the browser
 
-### `npm run build`
+```sh
+yarn dev
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Run test
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```sh
+yarn test
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Advantages and disadvantages of the design.
 
-### `npm run eject`
+- Given the requirements for the project I set up a global provider for the entire application, called _HeroesProvider_. The provider essentially contains the array of Marvel heroes.
+  I set up another Provider _FavHeroesProvider_ to keep track of the favourites heroes selected by the user.
+  I used _react-query_ to handle Promise and axios for http request to the marvel API.
+  Regarding the design pattern, I tried as much possible to separate those components that contain the actual logic from those components that are only use for representational purpuses. I also used custom hooks to extract and isolate the core logic of the application.
+  I used contextAPI in order to keep a central store for the application that allow to consume the global state by every component in the application, avoiding prop drilling.
+  The main advantage in the design is that the majority of the components have little logic and are easy to test and to maintain.
+  The main disadvantages is that it is not scalable and there is not the implication of a state management library such as Redux. Moreover, it lack the implementation of a web server and a database where to store the actual state.
+  I used webpack and differenciate between the development mode and the production mode.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Structure of the project
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- public
+- src
+  - components
+  - hooks
+  - pages
+    - landingPage
+      - components
+      - **test**
+      - Landing.tsx
+  - providers
+  - router
+  - styles

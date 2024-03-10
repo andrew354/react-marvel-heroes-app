@@ -1,6 +1,6 @@
 import './listHeroes.scss'
 import { HeroesType } from '../../types/types'
-import { useFavHeroesContext } from '../../providers/FavCharProvider'
+import { useFavHeroesContext } from '../../providers/FavHeroesProvider'
 import HeroCard from '../HeroCard/HeroCard'
 
 type ListHeroesProps = {

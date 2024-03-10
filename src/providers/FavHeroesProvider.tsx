@@ -19,8 +19,9 @@ type FavHeroesProvider = {
 
 export const FavHeroesContext = createContext({} as FavHeroesProvider)
 
-export const FavCharProvider = ({ children }: FavHeroesProviderProps) => {
+export const FavHeroesProvider = ({ children }: FavHeroesProviderProps) => {
   const [favourite, setFavourite] = useState<HeroesType[]>([])
+
   return (
     <FavHeroesContext.Provider
       value={{

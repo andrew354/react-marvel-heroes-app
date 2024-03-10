@@ -1,5 +1,5 @@
 import './favourite.scss'
-import { useFavHeroesContext } from '../../providers/FavCharProvider'
+import { useFavHeroesContext } from '../../providers/FavHeroesProvider'
 import ListHeroes from '../../components/ListHeroes/ListHeroes'
 import Layout from '../../components/Layout/Layout'
 

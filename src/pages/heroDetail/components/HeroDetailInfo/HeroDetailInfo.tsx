@@ -1,9 +1,10 @@
 import HeartFull from '../../../../assets/images/heartFull.svg'
 import HeartEmpty from '../../../../assets/images/heartEmpty.svg'
 import Spinner from '../../../../components/Spinner/Spinner'
-import { useFavHeroesContext } from '../../../../providers/FavCharProvider'
+import { useFavHeroesContext } from '../../../../providers/FavHeroesProvider'
 import { HeroesType } from '../../../../types/types'
 import HeroDetailComicsList from '../HeroDetailComicsList/HeroDetailComicsList'
+import HeroDetailHeader from '../HeroDetailHeader/HeroDetailHeader'
 
 type HeroDetailInfoProps = {
   isLoading: boolean
@@ -23,29 +24,7 @@ const HeroDetailInfo = ({ isLoading, hero }: HeroDetailInfoProps) => {
         </div>
       ) : (
         <>
-          <div className="heroDetail_header">
-            <div className="heroDetail_info">
-              <img
-                src={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
-                alt="heroImage"
-              />
-            </div>
-            <div className="heroDetail_textbox">
-              <div className="heroDetail_title">
-                <h1>{hero.name}</h1>
-                {isFavourite ? (
-                  <div>
-                    <img src={HeartFull} alt="heartFull" />
-                  </div>
-                ) : (
-                  <div>
-                    <img src={HeartEmpty} alt="heartEmpty" />
-                  </div>
-                )}
-              </div>
-              <p>{hero.description}</p>
-            </div>
-          </div>
+          <HeroDetailHeader hero={hero} isFavourite={isFavourite} />
           <div className="heroDetail_comics">
             <HeroDetailComicsList />
           </div>

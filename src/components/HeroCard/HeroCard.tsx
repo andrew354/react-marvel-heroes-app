@@ -2,7 +2,7 @@ import './heroCard.scss'
 import HeartEmpty from '../../assets/images/heartEmpty.svg'
 import { Link } from 'react-router-dom'
 import { HeroesType } from '../../types/types'
-import { useFavHeroesContext } from '../../providers/FavCharProvider'
+import { useFavHeroesContext } from '../../providers/FavHeroesProvider'
 import FavouriteHeart from '../FavoriteHeart/FavouriteHeart'
 
 type HeroCardProps = {

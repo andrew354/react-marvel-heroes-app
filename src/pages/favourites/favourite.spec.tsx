@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import Favourites from './Favourites'
-import { FavHeroesContext } from '../../providers/FavCharProvider'
+import { FavHeroesContext } from '../../providers/FavHeroesProvider'
 import { QueryClient, QueryClientProvider } from 'react-query'
 import { HeroesContext } from '../../providers/HeroesProvider'
 import { BrowserRouter } from 'react-router-dom'
