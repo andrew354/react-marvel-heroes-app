@@ -1,0 +1,52 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
+@mixin resize($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+.header {
+  width: 100vw;
+  height: 90px;
+  background: $color-black;
+  color: $color-white;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+  @include resize($sm) {
+    display: flex;
+    justify-content: space-between;
+  }
+  .header_wrapper {
+    width: 73%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0px 60px 0 60px;
+    align-items: center;
+    @include resize($sm) {
+      width: 100%;
+      padding: 20px;
+    }
+    img {
+      height: 60px;
+      cursor: pointer;
+    }
+    .header_favorite {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      img {
+        height: 30px;
+      }
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+}

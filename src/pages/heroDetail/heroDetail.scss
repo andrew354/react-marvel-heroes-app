@@ -1,0 +1,68 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
+@mixin resize($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}
+
+.heroDetail_container {
+	margin-top: 90px;
+	border-top: 1px solid rgb(78, 70, 70);
+	.heroDetail_header {
+		.heroDetail_info {
+			@include resize($sm) {
+				display: flex;
+				flex-direction: column;
+				img {
+					width: 100%;
+				}
+			}
+		}
+		width: 100vw;
+		height: 321px;
+		display: flex;
+		justify-content: center;
+		background-color: black;
+		gap: 50px;
+		@include resize($sm) {
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+		}
+		img {
+			height: 320px;
+			width: 330px;
+		}
+		.heroDetail_textbox {
+			align-self: center;
+			color: white;
+			.heroDetail_title {
+				display: flex;
+				align-items: center;
+				justify-content: space-between;
+				margin-bottom: 30px;
+				img {
+					width: 30px;
+					height: 30px;
+				}
+			}
+			p {
+				width: 600px;
+				@include resize($sm) {
+					width: 100%;
+				}
+			}
+			h1 {
+				width: 550px;
+				@include resize($sm) {
+					width: 310px;
+				}
+			}
+			@include resize($sm) {
+				padding: 15px;
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+
+@mixin resize($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}
+
+.listheroes_results {
+	margin: 5px 5px 0px 30px;
+}
+.listheroes_container {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 13px;
+	margin-top: 30px;
+	@include resize($sm) {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 16px;
+	}
+	@include resize($md) {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+}

@@ -1,0 +1,62 @@
+@import '../../../../styles/mixin.scss';
+@import '../../../../styles/variables.scss';
+
+@mixin resize($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}
+
+.heroDetailComicsList_container {
+	width: 950px;
+	margin: 0 auto;
+	@include resize($sm) {
+		width: 100%;
+	}
+	h1 {
+		margin: 30px 0;
+		@include resize($sm) {
+			margin-left: 30px;
+		}
+	}
+	.comics_container {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow-x: scroll;
+		scrollbar-color: orange orange;
+		gap: 30px;
+		padding-bottom: 20px;
+		@include resize($sm) {
+			gap: 8px;
+			padding: 30px;
+		}
+		.comics_card {
+			img {
+				width: 210px;
+				height: 290px;
+				@include resize($sm) {
+					width: 150px;
+					height: 290px;
+				}
+			}
+			p {
+				font-size: 12px;
+				font-weight: 600;
+				max-width: 200px;
+				@include resize($sm) {
+					max-width: 150px;
+				}
+			}
+		}
+	}
+}
+::-webkit-scrollbar {
+	-webkit-appearance: none;
+	width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 4px;
+	background-color: rgba(0, 0, 0, 0.5);
+	box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
+}

@@ -1,0 +1,15 @@
+@import '../../styles/variables.scss';
+
+@mixin resize($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}
+
+.landing_container {
+	margin: 150px 0px;
+	padding: 0 20px 0 20px;
+	@include resize($sm) {
+		padding: 0 4px 0 4px;
+	}
+}

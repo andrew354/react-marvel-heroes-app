@@ -1,0 +1,75 @@
+@import '../../styles/mixin.scss';
+@import '../../styles/variables.scss';
+
+@mixin resize($width) {
+	@media screen and (max-width: $width) {
+		@content;
+	}
+}
+
+.herocard_container {
+	background-color: red;
+	position: relative;
+
+	img {
+		height: 250px;
+		width: 220px;
+		@include resize($sm) {
+			height: 210px;
+			width: 170px;
+		}
+	}
+	.herocard_bottom {
+		height: 70px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 8px;
+		background-color: $color-black;
+		color: $color-white;
+		.herocard_favourite {
+			svg {
+				fill: $color-red;
+			}
+		}
+		&:hover {
+			background-color: $color-red;
+
+			.herocard_favourite {
+				svg {
+					fill: $color-white;
+				}
+			}
+			::after {
+				content: '';
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				border-bottom: 20px solid $color-white;
+				border-left: 20px solid $color-red;
+				width: 0;
+			}
+		}
+		::after {
+			content: '';
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			border-bottom: 20px solid $color-white;
+			border-left: 20px solid $color-black;
+			width: 0;
+		}
+
+		p {
+			max-width: 120px;
+		}
+		.herocard_favourite,
+		.herocard_notfavourite {
+			cursor: pointer;
+			img {
+				height: 20px;
+				width: 20px;
+			}
+		}
+	}
+}

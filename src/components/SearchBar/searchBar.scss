@@ -1,0 +1,20 @@
+@import '../../styles/variables.scss';
+
+.searchBar_container {
+	display: flex;
+	align-items: center;
+	border-bottom: 2px solid gray;
+	margin: 0px 5px 20px 5px;
+	padding: 5px;
+
+	img {
+		width: 20px;
+	}
+	input {
+		padding-left: 10px;
+		width: 100%;
+		-webkit-appearance: none;
+		outline: none;
+		font-family: $montserrat;
+	}
+}
