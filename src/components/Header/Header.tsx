@@ -1,26 +1,20 @@
 import './header.scss'
 import HeartFull from '../../assets/images/heartFull.svg'
 import MarvelLogo from '../../assets/images/MarvelLogo.svg'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useFavHeroesContext } from '../../providers/FavHeroesProvider'
 
 const Header = () => {
-  const navigate = useNavigate()
   const { favourite } = useFavHeroesContext()
-
-  const refresh = () => {
-    navigate('/')
-  }
-
   return (
     <div className="header">
       <div className="header_wrapper">
-        <div onClick={refresh}>
+        <Link to="/">
           <img className="header_image" src={MarvelLogo} alt="marvelLogo" />
-        </div>
+        </Link>
         <Link to="/favourites">
           <div className="header_favorite">
-            <img src={HeartFull} alt="heartFull" />
+            <img src={HeartFull} alt="favouriteLogo" />
             <div>
               {favourite.length === 0 ? <span>0</span> : favourite.length}
             </div>

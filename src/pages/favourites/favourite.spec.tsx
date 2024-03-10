@@ -9,7 +9,28 @@ export type WrapperProvidersProps = {
   children: React.ReactNode
 }
 
-export const heroesContextValue = {
+export const mockComics = [
+  {
+    id: 1,
+    year: '1990',
+    title: 'Spider-Man Comics One',
+    thumbnail: {
+      extension: 'png',
+      path: 'image-url-spiderman-comics-one',
+    },
+  },
+  {
+    id: 2,
+    year: '1992',
+    title: 'Spider-Man Comics Two',
+    thumbnail: {
+      extension: 'png',
+      path: 'image-url-spiderman-comics-two',
+    },
+  },
+]
+
+export const mockHeroesContextValue = {
   isLoading: false,
   heroes: [
     {
@@ -43,31 +64,12 @@ export const heroesContextValue = {
       name: 'Spider-Man',
       description: 'description',
       thumbnail: { extension: 'png', path: 'image-url-spiderman' },
-      comics: [
-        {
-          id: 1,
-          year: '1990',
-          title: 'Spider-Man Comics One',
-          thumbnail: {
-            extension: 'png',
-            path: 'image-url-spiderman-comics-one',
-          },
-        },
-        {
-          id: 2,
-          year: '1992',
-          title: 'Spider-Man Comics Two',
-          thumbnail: {
-            extension: 'png',
-            path: 'image-url-spiderman-comics-two',
-          },
-        },
-      ],
+      comics: mockComics,
     },
   ],
 }
 
-export const favHeroesContextValue = {
+export const mockFavHeroesContextValue = {
   setFavourite: jest.fn(),
   favourite: [
     {
@@ -128,8 +130,8 @@ export const favHeroesContextValue = {
 export const WrapperProviders = ({ children }: WrapperProvidersProps) => (
   <BrowserRouter>
     <QueryClientProvider client={new QueryClient()}>
-      <HeroesContext.Provider value={heroesContextValue}>
-        <FavHeroesContext.Provider value={favHeroesContextValue}>
+      <HeroesContext.Provider value={mockHeroesContextValue}>
+        <FavHeroesContext.Provider value={mockFavHeroesContextValue}>
           {children}
         </FavHeroesContext.Provider>
       </HeroesContext.Provider>
@@ -137,29 +139,33 @@ export const WrapperProviders = ({ children }: WrapperProvidersProps) => (
   </BrowserRouter>
 )
 
-it('renders Favourites component', () => {
-  render(<Favourites />, { wrapper: WrapperProviders })
-  const headingElement = screen.getByText(/Favourites/i)
-  expect(headingElement).toBeInTheDocument()
+describe('Favourites', () => {
+  beforeEach(async () => {
+    render(<Favourites />, { wrapper: WrapperProviders })
+  })
+  it('renders Favourites component', () => {
+    const headingElement = screen.getByText(/Favourites/i)
+    expect(headingElement).toBeInTheDocument()
 
-  const headingResultsCount = screen.getByText(/2 RESULTS/i)
-  expect(headingResultsCount).toBeInTheDocument()
+    const headingResultsCount = screen.getByText(/2 RESULTS/i)
+    expect(headingResultsCount).toBeInTheDocument()
 
-  const ironManElement = screen.getByText(/Iron Man/i)
-  expect(ironManElement).toBeInTheDocument()
+    const ironManElement = screen.getByText(/Iron Man/i)
+    expect(ironManElement).toBeInTheDocument()
 
-  const spiderManElement = screen.getByText(/Spider-Man/i)
-  expect(spiderManElement).toBeInTheDocument()
+    const spiderManElement = screen.getByText(/Spider-Man/i)
+    expect(spiderManElement).toBeInTheDocument()
 
-  const ironManImage = screen.getByAltText(
-    /Iron Man-heroIcon/
-  ) as HTMLImageElement
-  expect(ironManImage.src).toContain('image-url-ironman.jpg')
-  expect(ironManImage).toBeInTheDocument()
+    const ironManImage = screen.getByAltText(
+      /Iron Man-heroIcon/
+    ) as HTMLImageElement
+    expect(ironManImage.src).toContain('image-url-ironman.jpg')
+    expect(ironManImage).toBeInTheDocument()
 
-  const spiderManImage = screen.getByAltText(
-    /Spider-Man-heroIcon/
-  ) as HTMLImageElement
-  expect(spiderManImage.src).toContain('image-url-spiderman.jpg')
-  expect(spiderManImage).toBeInTheDocument()
+    const spiderManImage = screen.getByAltText(
+      /Spider-Man-heroIcon/
+    ) as HTMLImageElement
+    expect(spiderManImage.src).toContain('image-url-spiderman.jpg')
+    expect(spiderManImage).toBeInTheDocument()
+  })
 })

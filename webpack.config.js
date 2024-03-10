@@ -47,7 +47,7 @@ module.exports = (env, { mode }) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: 'public/index.html',
-        favicon: 'public/favicon.ico',
+        favicon: !isProduction ? 'public/favicon.ico' : 'public/favicon.ico',
       }),
       new MiniCssExtractPlugin({
         filename: !isProduction ? '[name].css' : '[name].[hash].css',
