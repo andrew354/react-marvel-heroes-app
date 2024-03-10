@@ -13,7 +13,7 @@ const HeroDetail = () => {
   return (
     <Layout>
       {isLoading && !data ? (
-        <div className="spinner loader">
+        <div className="spinner">
           <Spinner />
         </div>
       ) : (
