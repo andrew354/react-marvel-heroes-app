@@ -53,7 +53,7 @@ yarn lint
 ```sh
 yarn format
 ```
-### Run build for in production mode
+### Run build in production mode
 
 ```sh
 yarn build
