@@ -60,12 +60,13 @@ yarn test
 - public
 - src
   - components
+    - Header
       - Header.tsx
       - header.spec.tsx
       - header.scss
   - hooks
   - pages
-    - landingPage
+    - landing
       - components
       - **test**
       - Landing.tsx
