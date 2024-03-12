@@ -60,6 +60,9 @@ yarn test
 - public
 - src
   - components
+      - Header.tsx
+      - header.spec.tsx
+      - header.scss
   - hooks
   - pages
     - landingPage
