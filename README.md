@@ -16,7 +16,6 @@ This starter template includes:
 - [SASS](https://sass-lang.com/)
 - Linters:
   - [eslint](https://eslint.org/) + [prettier](https://prettier.io/) + [stylelint](https://stylelint.io/) + [lintstaged](https://github.com/okonet/lint-staged)
-  - [prettier-plugin-tailwindcss](https://tailwindcss.com/blog/automatic-class-sorting-with-prettier) - Automatic Class Sorting with Prettier
 
 ### Clone the repository and install dependencies
 
@@ -27,8 +26,7 @@ git clone https://github.com/andrew354/react-marvel-heroes-app
 ```sh
 yarn
 ```
-
-### or
+or
 
 ```sh
 npm install
