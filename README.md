@@ -32,7 +32,7 @@ or
 npm install
 ```
 
-### Open project in the browser
+### Open project in the browser in development mode
 
 ```sh
 yarn dev
@@ -43,17 +43,32 @@ yarn dev
 ```sh
 yarn test
 ```
+### Run linter
 
-### Advantages and disadvantages of the design.
+```sh
+yarn lint
+```
+### Run prettier
+
+```sh
+yarn format
+```
+### Run build for in production mode
+
+```sh
+yarn build
+```
+
+### Design and architecture.
 
 - Given the requirements for the project I set up a global provider for the entire application, called _HeroesProvider_. The provider essentially contains the array of Marvel heroes.
   I set up another Provider _FavHeroesProvider_ to keep track of the favourites heroes selected by the user.
-  I used _react-query_ to handle Promise and axios for http request to the marvel API.
-  Regarding the design pattern, I tried as much possible to separate those components that contain the actual logic from those components that are only use for representational purpuses. I also used custom hooks to extract and isolate the core logic of the application.
-  I used contextAPI in order to keep a central store for the application that allow to consume the global state by every component in the application, avoiding prop drilling.
+  I used _react-query_ to handle Promise and axios for HTTP request to the marvel API.
+  Regarding the design pattern, I tried as much possible to separate those components that contain the actual logic from those components that are only use for representational purpuses.
+  I also used custom hooks to extract and isolate the core logic of the application.
+  I used contextAPI in order to keep a central store for the application that allow to consume the global state by every component in the application, and avoiding prop drilling.
   The main advantage in the design is that the majority of the components have little logic and are easy to test and to maintain.
-  The main disadvantages is that it is not scalable and there is not the implication of a state management library such as Redux. Moreover, it lack the implementation of a web server and a database where to store the actual state.
-  I used webpack and differenciate between the development mode and the production mode.
+  I used webpack and differenciate between the development mode and the production mode to minimize the assets.
 
 ## Structure of the project
 
