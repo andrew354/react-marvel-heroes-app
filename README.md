@@ -59,17 +59,22 @@ yarn test
 
 - public
 - src
+  - assets
   - components
     - Header
       - Header.tsx
       - header.spec.tsx
       - header.scss
   - hooks
+    - useGetHeroes.ts
+    - useGetHeroes.spec.tsx
   - pages
     - landing
       - components
-      - **test**
+      - landing.spec.tsx
+      - landing.scss
       - Landing.tsx
   - providers
   - router
   - styles
+  - types
