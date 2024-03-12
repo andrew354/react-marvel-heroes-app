@@ -28,6 +28,8 @@ git clone https://github.com/andrew354/react-marvel-heroes-app
 yarn
 ```
 
+# or
+
 ```sh
 npm install
 ```

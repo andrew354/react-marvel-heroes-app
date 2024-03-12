@@ -16,7 +16,7 @@ type SearchBarProps = {
 
 const SearchBar = ({ setValue }: SearchBarProps) => {
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setValue(e.target.value)
+    setValue(e.target.value.trim())
   }
 
   const debouncedResults = useMemo(() => {
