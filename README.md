@@ -15,7 +15,7 @@ This starter template includes:
 - [react-testing-library](https://testing-library.com/docs/react-testing-library/intro/)
 - [SASS](https://sass-lang.com/)
 - Linters:
-  - [eslint](https://eslint.org/) + [prettier](https://prettier.io/) + [stylelint](https://stylelint.io/) + [lintstaged](https://github.com/okonet/lint-staged)
+  - [eslint](https://eslint.org/) + [prettier](https://prettier.io/)
 
 ### Clone the repository and install dependencies
 
